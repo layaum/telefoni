@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Recap</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+	
+	<div class="container">
+	 <ul class="pagination">
+	    <li class="disabled"><a href="/"><i class="material-icons">chevron_left</i></a></li>
+	   
+	   
+	  </ul>
+	
+ <div class="container">
+
+
+<h5>Grazie per l'acquisto</h5>
+<table>
+        <thead>
+          <tr>
+              <th>Prodotto</th>
+              <th>Quantità</th>
+		
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each = "index: ${lista}">
+            <td th:text="${index.getNome()}"></td>
+			<td  th:text="${index.getQnt()}"></td>
+			
+          </tr>
+		 
+          <tr>
+        
+        </tbody>
+      </table>
+	  <h3>Il prezzo totale da pagare è <input th:value="${somma}" th:name="prezzo" readonly> euro</input>
+
+<form action = "/conferma" method = "post">
+<label>Inserisci la mail per confermare l'ordine</label>
+<input type = "text" name = "mail">
+<input type = "submit" value = "conferma">
+</form>
+</div>
+</body>
+</html>

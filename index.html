@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Innovate Eco Tech Company Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	 <link rel="stylesheet" href="./index.css">
+	 <style>
+
+		/*inizio carosello*/
+	
+		/*fine carosello*/
+    img {
+    
+    width:200px !important;
+    height:300px !important;
+    }
+	
+	h1 {
+		text-align: center;
+		margin-top: 10px;
+		color: floralwhite;
+		font-size: 99px;
+		font-family: Impact;
+	}
+	h2 {
+		text-align: center;
+		color: rgb(255, 0, 128);
+		font-size: 59px;
+		font-family: Impact;
+	}
+	body {
+		background-color: cadetblue;
+		display: flex;
+			  min-height: 100vh;
+			  flex-direction: column;
+	}
+	
+
+
+	main {
+	  flex: 1 0 auto;
+	}
+	   
+	
+	
+	.card {
+		background-color: blanchedalmond;
+		margin-top: 15px;
+		border-style: double;
+		border-color: darkgreen;
+	border-end-end-radius: 15px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	
+	}
+	
+	img {
+		margin-top: 7px;
+		  width: 100%;
+		  height:100%;
+		  object-fit: cover;
+		  
+		  border-radius: 50% !important;
+		    /*width: 200px;
+		    height: 200px;*/
+		}
+	
+	.btn {
+		color:  floralwhite;
+		font-family: Impact;
+		font-size: 30px;
+		
+	}
+	
+	.card-body {
+		padding: 35px;
+		margin-inline: 15px;
+		}
+	
+	.page-footer {
+		background-color:  rgb(255, 0, 128);
+          color: floralwhite;
+		  margin-left: -300px;
+		  margin-right: -300px;
+		  font-size: 19px;
+		  font-family: Impact;
+		  position: relative;
+	      	
+		  }
+	h5 {
+		margin-top: 25px;
+		
+	}
+     a {
+		color:  blanchedalmond;
+		margin-bottom: 25px;
+		margin-top: -50px;
+	 }
+
+	 
+    </style>
+  </head>
+ 
+  
+   
+
+<body>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div class="container">
+		<br>
+        <h1>Innovate Eco Tech Company</h1>
+		<br>  <br>  <br>  <br> 
+		
+		<!--inizio carosello-->
+		
+	
+		<!--fine carosello-->
+		 
+		 
+		<h2>Telefonia</h2>
+         <form action = "process" method = "post">
+   <div class="card-group">
+   
+        <div th:each="prodotto : ${listaP}" class = "card">
+        <img th:src="${prodotto.url}" alt="Immagine evento" class="card-img-top mx-auto">
+         <divdivdiv class="card-body">
+         <h5 class = "card-title">Nome: <span th:text="${prodotto.nome}"></span></h5>
+            <p class="card-text">Tipologia: <span th:text="${prodotto.tipologia}"></span></p>
+            <!--<p class="card-text">Prezzo: <span th:text="${prodotto.prezzo}"></span></p>
+			<p class="card-text">Quantità: <span th:text="${prodotto.quantita}"></span></p>
+		
+			
+  
+			 
+    <!-- <input type="number" id="prezzo" value="0" th:name="qnts">-->
+           </div>
+      
+     
+    </div>
+	
+	
+    <!--<input type="submit" value = "ordina">-->
+    </form>
+        <br>
+    <br>
+    
+        <div class="text-center">
+            <button class="btn" onclick="location.href='/negozio'">Acquista</button>
+			
+        </div>
+		<br><br><br><br>v
+		<footer class="page-footer">
+		         <div class="container">
+		           <div class="row">
+		             <div class="col l6 s12">
+		               <h5 class="white-text">Entra nel Futuro!</h5>
+		               <p class="grey-text text-lighten-4">Innovate Eco Tech Company</p>
+					   <p class="grey-text text-lighten-4">Via delle Stelle. 50</p>
+					   <p class="grey-text text-lighten-4">Shambala</p>
+		             </div>
+		             <div class="col l4 offset-l2 s12">
+		               <h5 class="white-text">Social</h5>
+		               <ul>
+		                 <li><a class="grey-text text-lighten-3" href="https://it.linkedin.com/">Linkedin</a></li>
+		                 <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/">Instagram</a></li>
+		                 <li><a class="grey-text text-lighten-3" href="https://it-it.facebook.com/">Facebook</a></li>
+		                 <li><a class="grey-text text-lighten-3" href="https://parler.com/">Parler</a></li>
+		               </ul>
+		             </div>
+		           </div>
+		         </div>
+		         <div class="footer-copyright">
+		           <div class="container">
+		           © 2024 
+		           <a class="grey-text text-lighten-4 right" href="https://www.bing.com/ck/a?!&&p=8063c046d1b93d93JmltdHM9MTcyMjU1NjgwMCZpZ3VpZD0zNTNlMGVlNS00MzU4LTZjMWMtMGMyMC0xYTJhNDJjMDZkNDEmaW5zaWQ9NTE2OA&ptn=3&ver=2&hsh=3&fclid=353e0ee5-4358-6c1c-0c20-1a2a42c06d41&psq=amai+da+urlare&u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vQEFtYWlkYXVybGFyZQ&ntb=1">Laura de Maria</a>
+		           </div>
+		         </div>
+		       </footer>
+    
+</body>
+</html>
+</html>
