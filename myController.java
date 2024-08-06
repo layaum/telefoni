@@ -56,6 +56,50 @@ public class myController {
 	 }
 	
 	
+	@GetMapping("/registrati")
+	  public String getRegistrati() {
+		
+		return "recUtente";
+	 }
+	
+	//metodo per registrazione utente
+	@PostMapping("/submit2")
+	public ResponseEntity getSubmit(@RequestParam("nome") String nome,
+			@RequestParam("cognome") String cognome, @RequestParam("citta") String citta,
+			@RequestParam("indirizzo") String indirizzo, @RequestParam("telefono") int telefono, @RequestParam("mail") String mail, Model model) {
+		
+		System.out.println(mail);
+		
+		prodJDBCTemp.insertutente(nome, cognome, citta, indirizzo, telefono, mail);
+		
+		return ResponseEntity.ok("utente " + mail + " registrato con successo");
+	}
+	
+	@PostMapping("/delete2")
+	public ResponseEntity getDelete2(@RequestParam("mail") String mail) {
+	
+		prodJDBCTemp.deleteMail(mail);
+			
+	return ResponseEntity.ok("utente " + mail + " cancellato con successo");
+	}
+	/*@GetMapping("/")
+	public String getrec(Model model) {
+		
+		ArrayList<utente> lista = prodJDBCTemp.getListaU();
+		
+		for (utente u1: lista) {
+			
+			System.out.println(u1);
+		}
+		
+		model.addAttribute("listaU2", lista);
+		
+		
+		
+		return "index";
+	}*/
+	
+	//fine registrazione utente metodo
 	
 	
 	@PostMapping("/submit")

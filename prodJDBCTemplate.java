@@ -77,4 +77,62 @@ public class prodJDBCTemplate {
 		   return jdbcTemplateObject.update(query, qnt, nome);
 		   
 	   }
+	  
+	  
+	  //inizio registrazione utente
+	  public int insertutente(String nome , String cognome,  String citta, String indirizzo, int telefono, String mail) {
+	        String query = "INSERT INTO newsletter (nome, cognome, citta, indirizzo, telefono, mail) VALUES (?, ?, ?, ?, ?, ?)";
+	        return jdbcTemplateObject.update(query,nome, cognome, citta, indirizzo, telefono, mail);
+	    }
+	    public int updatemail(String mail, String cognome, String nome) {
+	        String query = "UPDATE newsletter SET mail = ? WHERE cognome = ? WHERE nome";
+	        return jdbcTemplateObject.update(query, mail, cognome, nome);
+	    }
+
+		public int deleteMail(String mail) {
+			String query = "DELETE FROM telefoni WHERE mail = ?";
+			return jdbcTemplateObject.update(query, mail);
+		}
+		
+		public ArrayList <utente> getListaU(){
+			// seleziona tutti i record da telefoni
+			String query = "SELECT * FROM newsletter";
+	 
+			// il metodo esegue la query e come secondo parametro crea un result set extractor
+			 return jdbcTemplateObject.query(query, new ResultSetExtractor<ArrayList<utente>>() {
+	            // l'oggetto resultSetExtractor ha il metodo extractData che deve essere obbligatoriamente implementato
+				@Override
+				public ArrayList<utente> extractData(ResultSet rs) throws SQLException, DataAccessException {
+	 
+					// creiamo un arraylist di prodotto che ci servirà come valore di ritorno del metodo
+					ArrayList <utente> listaU2 = new ArrayList<>();
+	 
+					// andiamo a iterare il resulta set
+					while (rs.next()) {
+	 
+						utente u1 = new utente();
+						// con i risultati del result set abbiamo instanziato un oggetto prodotto e lo abbiamo
+						// aggiunto alla lista
+						u1.setNome(rs.getString("nome"));
+						u1.setCognome(rs.getString("cognome"));
+						u1.setCitta(rs.getString("citta"));
+						u1.setIndirizzo(rs.getString("indirizzo"));
+						u1.setTelefono(rs.getInt("telefono"));
+						u1.setMail(rs.getString("mail"));
+						listaU2.add(u1);
+	 
+					}
+	 
+					return listaU2;
+				}
+	 
+		});
+	 
+		}
+		   
+		 /* public int updateprodottoOrdinato(String nome, int qnt) {
+			   
+			   String query = "UPDATE eventi SET postiD = postiD - ? WHERE nome = ?";
+			   return jdbcTemplateObject.update(query, qnt, nome);*/
 }
+
